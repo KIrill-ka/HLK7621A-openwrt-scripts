@@ -1,0 +1,45 @@
+1) подключить Ethernet-кабель к одному из портов встроенного коммутатора HLK7621A,
+получить адрес по DHCP от openwrt-устройства
+
+2) установить shell-переменную - IP-адрес openwrt-устройства
+Пример:
+IP=192.168.1.1
+
+3) установить shell-переменную - корень сборки openwrt
+Пример:
+export BUILDROOT=openwrt
+
+4) подготовить пакеты для отсылки на устройство
+HLK7621A-openwrt-scripts/prepare-packages.sh
+
+5) скопировать прошивку на устройство
+scp $BUILDROOT/bin/targets/ramips/mt7621/openwrt-ramips-mt7621-hilink_hlk-7621a-evb-squashfs-sysupgrade.bin \
+    root@$IP:/tmp/img.bin
+
+6) зайти на устройство по ssh (вместо шагов 6) и 7) можно выполнить обновление через web-интерфейс)
+ssh root@$IP
+
+7) выполнить обновление (-n - без сохранения настроек)
+sysupgrade -v -n /tmp/img.bin
+
+8) скопировать пакеты на устройство
+scp pkg.tar root@$IP:/tmp/
+
+9) зайти на устройство по ssh
+ssh root@$IP
+
+10) распаковать архив с пакетами, подготовить список пакетов
+cd /tmp
+tar xvf pkg.tar
+cp distfeeds.conf /etc/opkg
+opkg update
+
+11) установить нужные пакеты
+opkg install luci
+opkg install luci-mod-dashboard
+opkg install iperf
+opkg install ath10k-firmware-qca988x
+opkg install ath10k-firmware-qca9984
+opkg install kmod-ath10k
+opkg install luci-i18n-base-ru
+opkg install snmpd
