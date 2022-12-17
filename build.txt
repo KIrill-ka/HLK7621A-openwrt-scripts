@@ -1,0 +1,32 @@
+1) получение исходников
+git clone https://github.com/openwrt/openwrt.git
+cd openwrt
+git checkout v22.03.2
+scripts/feeds update
+
+# web-интерфейс (luci)
+scripts/feeds install cgi-io
+scripts/feeds install -a -p luci
+
+# iperf
+scripts/feeds install iperf
+scripts/feeds install iperf3
+
+# поддержка snmp
+scripts/feeds install snmpd
+
+# дополнительные пакеты snmp
+scripts/feeds install snmp-mibs
+scripts/feeds install snmp-utils
+
+cd ..
+
+2) подготовка конфигурации openwrt
+git clone https://github.com/KIrill-ka/HLK7621A-openwrt-scripts.git
+cp HLK7621A-openwrt-scripts/diffconfig openwrt/.config
+cd openwrt
+make defconfig
+make download
+
+3) сборка
+make -j4
