@@ -1,0 +1,22 @@
+* MIB для wifi
+
+> Basic information about WIFi 802.11 interfaces can be obtained using the
+> OID 1.2.840.10036, the MIB file for this OID is available for download 
+> from sourceforge. 
+https://sourceforge.net/p/net-snmp/patches/_discuss/thread/35fa2f88/2b10/attachment/80211-MIB.txt
+
+Этот файл можно поместить в ~/.snmp/mibs
+
+* Команды для проверки SNMP
+Команда snmpwalk доступна через пакет snmp debian/ubuntu
+$IP - IP-адрес устройства
+
+Запрос дерева SNMP:
+snmpwalk -m ALL -v 2c -c public $IP
+
+Запрос данных wifi по OID:
+snmpwalk -m ALL -v 2c -c public $IP 1.2.840.10036
+
+Запрос данных wifi по имени:
+snmpwalk -m ALL -v 2c -c public $IP IEEE802dot11
+
