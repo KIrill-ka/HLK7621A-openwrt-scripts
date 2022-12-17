@@ -28,5 +28,5 @@ cd openwrt
 make defconfig
 make download
 
-3) сборка
+3) сборка (-j4 параллельная сборка в 4 параллельных процесса)
 make -j4
