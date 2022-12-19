@@ -1,0 +1,5 @@
+Включение русификации LUCI
+1) Выбрать в меню System->System
+2) Выбрать вкладку Lanuage and Style
+3) Поменять Language на Русский
+4) Назать Save & Apply
