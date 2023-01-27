@@ -40,8 +40,10 @@ opkg update
 opkg install luci
 opkg install luci-mod-dashboard
 opkg install iperf
-opkg install ath10k-firmware-qca988x
-opkg install ath10k-firmware-qca9984
-opkg install kmod-ath10k
+#opkg install ath10k-firmware-qca988x
+#opkg install ath10k-firmware-qca9984
+#opkg install kmod-ath10k
+opkg install ath10k-firmware-qca988x-ct
+opkg install ath10k-firmware-qca9984-ct-wle1216vx
 opkg install luci-i18n-base-ru
 opkg install snmpd

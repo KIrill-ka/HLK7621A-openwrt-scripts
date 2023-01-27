@@ -1,9 +1,8 @@
 Сборка openwrt
 
 1) получение исходников
-git clone https://github.com/openwrt/openwrt.git
+git clone -b v22.03.2-kaskad https://github.com/KIrill-ka/openwrt.git
 cd openwrt
-git checkout v22.03.2
 scripts/feeds update
 
 # web-интерфейс (luci)
