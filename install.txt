@@ -18,11 +18,16 @@ HLK7621A-openwrt-scripts/prepare-packages.sh
 scp $BUILDROOT/bin/targets/ramips/mt7621/openwrt-ramips-mt7621-hilink_hlk-7621a-evb-squashfs-sysupgrade.bin \
     root@$IP:/tmp/img.bin
 
-6) зайти на устройство по ssh (вместо шагов 6) и 7) можно выполнить обновление через web-интерфейс)
-ssh root@$IP
+6) вместо шагов 6) и 7) можно выполнить обновление через web-интерфейс, если он доступен
+зайти на устройство по через консоль или SSH, предпочтительно - консоль
+Для SSH: 
+ ssh root@$IP
 
 7) выполнить обновление (-n - без сохранения настроек)
 sysupgrade -v -n /tmp/img.bin
+
+7.1) eсли настройки сброшены, потребуется обновить переменную IP
+IP=192.168.1.1
 
 8) скопировать пакеты на устройство
 scp pkg.tar root@$IP:/tmp/
