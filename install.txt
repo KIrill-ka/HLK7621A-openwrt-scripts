@@ -52,3 +52,5 @@ opkg install ath10k-firmware-qca988x-ct
 opkg install ath10k-firmware-qca9984-ct-wle1216vx
 opkg install luci-i18n-base-ru
 opkg install snmpd
+opkg install relayd
+opkg install luci-proto-relay

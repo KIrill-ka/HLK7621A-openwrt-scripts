@@ -20,6 +20,9 @@ scripts/feeds install snmpd
 scripts/feeds install snmp-mibs
 scripts/feeds install snmp-utils
 
+# relayd
+scripts/feeds install relayd
+
 cd ..
 
 2) подготовка конфигурации openwrt
